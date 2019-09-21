@@ -118,9 +118,12 @@ client2.on('message', message => {
 
 
 
-client.on('message', message => {
-  if (!message.content.startsWith("!say") && message.content.split(" ")[1]) return undefined;
-  message.channel.send(message.content.split(" ").slice(1).join(" "));
+if (command == "say") {
+let rank = message.guild.member(message.author).roles.find('name', 'Role.n3k4a');
+if (!rank) return message.reply(' ')
+  message.channel.send(args.join("  "))
+    message.delete();
+  }
 });
 
 
